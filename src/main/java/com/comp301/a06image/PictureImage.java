@@ -9,12 +9,14 @@ import java.util.Objects;
 
 public class PictureImage implements Image {
   private final BufferedImage bufferedImage;
+  private int layer;
 
   public PictureImage(String pathname) throws IOException {
     if (pathname == null) {
       throw new IllegalArgumentException();
     }
     this.bufferedImage = ImageIO.read(new File(pathname));
+    this.layer = 1;
   }
 
   public Color getPixelColor(int x, int y) {
@@ -38,6 +40,6 @@ public class PictureImage implements Image {
   }
 
   public int getNumLayers() {
-    return 1;
+    return this.layer;
   }
 }

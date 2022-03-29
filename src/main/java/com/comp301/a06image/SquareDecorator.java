@@ -8,6 +8,7 @@ public class SquareDecorator implements Image {
   private int squareY;
   private int squareSize;
   private Color color;
+  private int layer;
 
   public SquareDecorator(Image image, int squareX, int squareY, int squareSize, Color color) {
     if (image == null || squareSize < 0) {
@@ -18,6 +19,7 @@ public class SquareDecorator implements Image {
     this.squareY = squareY;
     this.squareSize = squareSize;
     this.color = color;
+    this.layer = image.getNumLayers();
   }
 
   public Color getPixelColor(int x, int y) {
@@ -39,6 +41,6 @@ public class SquareDecorator implements Image {
   }
 
   public int getNumLayers() {
-    return (image.getNumLayers() + 1);
+    return layer;
   }
 }

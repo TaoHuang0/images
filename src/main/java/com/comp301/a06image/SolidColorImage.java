@@ -6,6 +6,7 @@ public class SolidColorImage implements Image {
   private int width;
   private int height;
   private Color color;
+  private int layer;
 
   public SolidColorImage(int width, int height, Color color) {
     if (width < 0 || height < 0) {
@@ -14,6 +15,7 @@ public class SolidColorImage implements Image {
     this.width = width;
     this.height = height;
     this.color = color;
+    this.layer = 1;
   }
 
   public Color getPixelColor(int x, int y) {
@@ -32,6 +34,6 @@ public class SolidColorImage implements Image {
   }
 
   public int getNumLayers() {
-    return 1;
+    return this.layer;
   }
 }
