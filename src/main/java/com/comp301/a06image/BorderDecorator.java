@@ -18,15 +18,10 @@ public class BorderDecorator implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    System.out.println("x: " + x);
-    System.out.println("y: " + y);
-    System.out.println("thick: " + this.thiccness);
-    System.out.println("width" + image.getWidth());
-    System.out.println("height" + image.getHeight());
     if (x < 0
         || y < 0
-        || x > (image.getWidth() + 2 * thiccness)
-        || y > (image.getHeight() + 2 * thiccness)) {
+        || x >= (image.getWidth() + 2 * thiccness)
+        || y >= (image.getHeight() + 2 * thiccness)) {
       System.out.println("def");
       throw new IllegalArgumentException();
     }
@@ -37,11 +32,9 @@ public class BorderDecorator implements Image {
         || x >= (image.getWidth() + thiccness)
         || y < thiccness
         || y >= (image.getHeight() + thiccness)) {
-      System.out.println("ghi");
       return this.borderColor;
     }
-    System.out.println("jkl");
-    return image.getPixelColor(x, y);
+    return image.getPixelColor(x - thiccness, y - thiccness);
   }
 
   public int getWidth() {
@@ -53,9 +46,6 @@ public class BorderDecorator implements Image {
   }
 
   public int getNumLayers() {
-    if (thiccness == 0) {
-      return image.getNumLayers();
-    }
     return image.getNumLayers() + 1;
   }
 }
