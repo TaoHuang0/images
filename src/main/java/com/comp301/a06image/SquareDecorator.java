@@ -10,7 +10,8 @@ public class SquareDecorator implements Image {
   private Color color;
 
   public SquareDecorator(Image image, int squareX, int squareY, int squareSize, Color color) {
-    if (image == null || squareSize <= 0) {
+    if (image == null || squareSize < 0) {
+      System.out.println("abc");
       throw new IllegalArgumentException();
     }
     this.image = image;
@@ -22,6 +23,7 @@ public class SquareDecorator implements Image {
 
   public Color getPixelColor(int x, int y) {
     if (x < 0 || y < 0) {
+      System.out.println("def");
       throw new IllegalArgumentException();
     }
     if (x >= squareSize + squareX
