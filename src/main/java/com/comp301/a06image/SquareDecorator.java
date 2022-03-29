@@ -19,7 +19,7 @@ public class SquareDecorator implements Image {
     this.squareY = squareY;
     this.squareSize = squareSize;
     this.color = color;
-    this.layer = image.getNumLayers();
+    this.layer = image.getNumLayers() + 1;
   }
 
   public Color getPixelColor(int x, int y) {
@@ -41,6 +41,6 @@ public class SquareDecorator implements Image {
   }
 
   public int getNumLayers() {
-    return layer;
+    return this.layer;
   }
 }
