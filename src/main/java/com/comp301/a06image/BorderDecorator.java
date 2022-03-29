@@ -23,6 +23,9 @@ public class BorderDecorator implements Image {
         || y >= image.getHeight() + 2 * thiccness) {
       throw new IllegalArgumentException();
     }
+    if (thiccness == 0) {
+      return image.getPixelColor(x, y);
+    }
     if (x < thiccness || x >= image.getWidth() || y < thiccness || y >= image.getHeight()) {
       return this.borderColor;
     }
@@ -38,6 +41,9 @@ public class BorderDecorator implements Image {
   }
 
   public int getNumLayers() {
+    if (thiccness == 0) {
+      return image.getNumLayers();
+    }
     return image.getNumLayers() + 1;
   }
 }
