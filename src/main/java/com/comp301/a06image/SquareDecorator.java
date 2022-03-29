@@ -22,16 +22,22 @@ public class SquareDecorator implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
+    System.out.println("x is: " + x);
+    System.out.println("y is: " + y);
+    System.out.println("squareSize is: " + this.squareSize);
+    System.out.println("squareX is: " + squareX);
+    System.out.println("squareY is: " + squareY);
     if (x < 0 || y < 0) {
-      System.out.println("def");
       throw new IllegalArgumentException();
     }
     if (x > squareSize + squareX
         || y > squareSize + squareY
         || x < squareX - squareSize
         || y < squareY - squareSize) {
+      System.out.println("abc");
       return image.getPixelColor(x, y);
     }
+    System.out.println("def");
     return this.color;
   }
 
