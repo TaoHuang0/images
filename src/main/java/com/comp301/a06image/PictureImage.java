@@ -3,6 +3,7 @@ package com.comp301.a06image;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public class PictureImage implements Image {
     if (pathname == null) {
       throw new IllegalArgumentException();
     }
-    this.bufferedImage = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(pathname)));
+    this.bufferedImage = ImageIO.read(new File(pathname));
   }
 
   public Color getPixelColor(int x, int y) {
