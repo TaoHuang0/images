@@ -23,7 +23,7 @@ public class BorderDecorator implements Image {
         || y >= image.getHeight() + 2 * thiccness) {
       throw new IllegalArgumentException();
     }
-    if (x < thiccness || x > image.getWidth() || y < thiccness || y > image.getHeight()) {
+    if (x < thiccness || x >= image.getWidth() || y < thiccness || y >= image.getHeight()) {
       return this.borderColor;
     }
     return image.getPixelColor(x, y);
