@@ -25,20 +25,13 @@ public class CircleDecorator implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    System.out.println(x);
-    System.out.println(y);
-    System.out.println(radius);
-    System.out.println(cx);
-    System.out.println(cy);
     if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) {
-      System.out.println("abc");
       throw new IllegalArgumentException();
     }
     int a = (x * x) + (this.cx * this.cx) - (2 * x * this.cx);
     int b = (y * y) + (this.cy * this.cy) - (2 * y * this.cy);
     int c = this.radius * this.radius;
     if (a + b < c) {
-      System.out.println("def");
       return this.color;
     }
     return image.getPixelColor(x, y);

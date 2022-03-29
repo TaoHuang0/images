@@ -1,0 +1,43 @@
+package com.comp301.a06image;
+
+import java.awt.*;
+
+public class BorderDecorator implements Image {
+  private Image image;
+  private int thiccness;
+  private Color borderColor;
+
+  public BorderDecorator(Image image, int thiccness, Color borderColor) {
+    if (image == null || thiccness < 0) {
+      throw new IllegalArgumentException();
+    }
+    this.image = image;
+    this.thiccness = thiccness;
+    this.borderColor = borderColor;
+  }
+
+  public Color getPixelColor(int x, int y) {
+    if (x < 0
+        || y < 0
+        || x >= image.getWidth() + 2 * thiccness
+        || y >= image.getHeight() + 2 * thiccness) {
+      throw new IllegalArgumentException();
+    }
+    if (x < thiccness || x > image.getWidth() || y < thiccness || y > image.getHeight()) {
+      return this.borderColor;
+    }
+    return image.getPixelColor(x, y);
+  }
+
+  public int getWidth() {
+    return image.getWidth() + 2 * this.thiccness;
+  }
+
+  public int getHeight() {
+    return image.getHeight() + 2 * this.thiccness;
+  }
+
+  public int getNumLayers() {
+    return image.getNumLayers() + 1;
+  }
+}
