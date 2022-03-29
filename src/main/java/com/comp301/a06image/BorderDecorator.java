@@ -9,6 +9,7 @@ public class BorderDecorator implements Image {
 
   public BorderDecorator(Image image, int thiccness, Color borderColor) {
     if (image == null || thiccness < 0) {
+      System.out.println("abc");
       throw new IllegalArgumentException();
     }
     this.image = image;
@@ -21,15 +22,16 @@ public class BorderDecorator implements Image {
         || y < 0
         || x >= (image.getWidth() + 2 * thiccness)
         || y >= (image.getHeight() + 2 * thiccness)) {
+      System.out.println("def");
       throw new IllegalArgumentException();
     }
     if (thiccness == 0) {
       return image.getPixelColor(x, y);
     }
     if (x < thiccness
-        || x >= (image.getWidth() + thiccness)
+        || x > (image.getWidth() + thiccness)
         || y < thiccness
-        || y >= (image.getHeight() + thiccness)) {
+        || y > (image.getHeight() + thiccness)) {
       return this.borderColor;
     }
     return image.getPixelColor(x, y);
