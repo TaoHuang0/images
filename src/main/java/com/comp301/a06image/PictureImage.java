@@ -4,15 +4,16 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class PictureImage implements Image {
-  private BufferedImage bufferedImage;
+  private final BufferedImage bufferedImage;
 
   public PictureImage(String pathname) throws IOException {
     if (pathname == null) {
       throw new IllegalArgumentException();
     }
-    this.bufferedImage = ImageIO.read(getClass().getResourceAsStream(pathname));
+    this.bufferedImage = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(pathname)));
   }
 
   public Color getPixelColor(int x, int y) {
