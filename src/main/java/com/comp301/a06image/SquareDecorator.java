@@ -39,6 +39,6 @@ public class SquareDecorator implements Image {
   }
 
   public int getNumLayers() {
-    return 2;
+    return (image.getNumLayers() + 1);
   }
 }
