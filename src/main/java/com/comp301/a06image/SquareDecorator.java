@@ -11,7 +11,6 @@ public class SquareDecorator implements Image {
 
   public SquareDecorator(Image image, int squareX, int squareY, int squareSize, Color color) {
     if (image == null || squareSize < 0) {
-      System.out.println("abc");
       throw new IllegalArgumentException();
     }
     this.image = image;
@@ -30,10 +29,7 @@ public class SquareDecorator implements Image {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException();
     }
-    if (x > squareSize + squareX
-        || y > squareSize + squareY
-        || x < squareX - squareSize
-        || y < squareY - squareSize) {
+    if (x > squareSize + squareX || y > squareSize + squareY) {
       System.out.println("abc");
       return image.getPixelColor(x, y);
     }
