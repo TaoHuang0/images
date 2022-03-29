@@ -21,11 +21,6 @@ public class SquareDecorator implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    System.out.println("x is: " + x);
-    System.out.println("y is: " + y);
-    System.out.println("squareSize is: " + this.squareSize);
-    System.out.println("squareX is: " + squareX);
-    System.out.println("squareY is: " + squareY);
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException();
     }
