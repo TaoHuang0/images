@@ -34,7 +34,10 @@ public class CircleDecorator implements Image {
       System.out.println("abc");
       throw new IllegalArgumentException();
     }
-    if (((x - this.cx) ^ 2 + (y - this.cy) ^ 2) < (this.radius ^ 2)) {
+    int a = (x - this.cx) ^ 2;
+    int b = (y - this.cy) ^ 2;
+    int c = this.radius ^ 2;
+    if (a + b < c) {
       System.out.println("def");
       return this.color;
     }
