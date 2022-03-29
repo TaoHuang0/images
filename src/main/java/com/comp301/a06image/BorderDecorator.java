@@ -20,8 +20,8 @@ public class BorderDecorator implements Image {
   public Color getPixelColor(int x, int y) {
     if (x < 0
         || y < 0
-        || x >= (image.getWidth() + 2 * thiccness)
-        || y >= (image.getHeight() + 2 * thiccness)) {
+        || x > (image.getWidth() + 2 * thiccness)
+        || y > (image.getHeight() + 2 * thiccness)) {
       System.out.println("def");
       throw new IllegalArgumentException();
     }
