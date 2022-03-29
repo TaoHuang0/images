@@ -19,14 +19,17 @@ public class BorderDecorator implements Image {
   public Color getPixelColor(int x, int y) {
     if (x < 0
         || y < 0
-        || x >= image.getWidth() + 2 * thiccness
-        || y >= image.getHeight() + 2 * thiccness) {
+        || x >= (image.getWidth() + 2 * thiccness)
+        || y >= (image.getHeight() + 2 * thiccness)) {
       throw new IllegalArgumentException();
     }
     if (thiccness == 0) {
       return image.getPixelColor(x, y);
     }
-    if (x < thiccness || x >= image.getWidth() || y < thiccness || y >= image.getHeight()) {
+    if (x < thiccness
+        || x >= (image.getWidth() + thiccness)
+        || y < thiccness
+        || y >= (image.getHeight() + thiccness)) {
       return this.borderColor;
     }
     return image.getPixelColor(x, y);
