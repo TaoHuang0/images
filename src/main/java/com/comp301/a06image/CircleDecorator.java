@@ -13,6 +13,9 @@ public class CircleDecorator implements Image {
   private int layers;
 
   public CircleDecorator(Image image, int cx, int cy, int radius, Color color) {
+    if (image == null || radius < 0) {
+      throw new IllegalArgumentException();
+    }
     this.image = image;
     this.cx = cx;
     this.cy = cy;
