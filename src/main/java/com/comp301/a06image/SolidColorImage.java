@@ -17,7 +17,7 @@ public class SolidColorImage implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    if (x < 0 || y < 0 || x > width || y > height) {
+    if (x < 0 || y < 0 || x >= width || y >= height) {
       throw new IllegalArgumentException();
     }
     return this.color;

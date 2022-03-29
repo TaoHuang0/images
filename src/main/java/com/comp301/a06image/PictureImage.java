@@ -18,9 +18,10 @@ public class PictureImage implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    System.out.println(x);
-    System.out.println(y);
-    if (x < 0 || y < 0 || x > this.bufferedImage.getWidth() || y > this.bufferedImage.getHeight()) {
+    if (x < 0
+        || y < 0
+        || x >= this.bufferedImage.getWidth()
+        || y >= this.bufferedImage.getHeight()) {
       throw new IllegalArgumentException();
     }
     int color = this.bufferedImage.getRGB(x, y);
