@@ -28,10 +28,10 @@ public class CircleDecorator implements Image {
     if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) {
       throw new IllegalArgumentException();
     }
-    if (((x - this.cx) ^ 2 + (y - this.cy) ^ 2) > (this.radius ^ 2)) {
-      return image.getPixelColor(x, y);
+    if (((x - this.cx) ^ 2 + (y - this.cy) ^ 2) < (this.radius ^ 2)) {
+      return this.color;
     }
-    return this.color;
+    return image.getPixelColor(x, y);
   }
 
   public int getWidth() {
