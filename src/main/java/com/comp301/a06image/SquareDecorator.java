@@ -23,7 +23,7 @@ public class SquareDecorator implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    if (x < 0 || y < 0) {
+    if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) {
       throw new IllegalArgumentException();
     }
     if (x >= squareSize + squareX || y >= squareSize + squareY || x < squareX || y < squareY) {

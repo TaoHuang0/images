@@ -25,7 +25,7 @@ public class CircleDecorator implements Image {
   }
 
   public Color getPixelColor(int x, int y) {
-    if (x < 0 || y < 0) {
+    if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) {
       throw new IllegalArgumentException();
     }
     if (sqrt((x - this.cx) ^ 2 + (y - this.cy) ^ 2) > radius) {
