@@ -11,16 +11,16 @@ public class Main {
    * different decorators.
    */
   public static Image makeImage() throws IOException {
-    PictureImage baseImage = new PictureImage("img/kmp.jpg");
+    Image baseImage = new PictureImage("img/kmp.jpg");
     Color redBorderColor = new Color(255, 0, 0);
     Color blueBorderColor = new Color(0, 0, 255);
     Color yellowCircleColor = new Color(255, 255, 0);
     Color orangeSquareColor = new Color(200, 80, 10);
-    BorderDecorator redBorderImage = new BorderDecorator(baseImage, 5, redBorderColor);
-    BorderDecorator blueBorderImage = new BorderDecorator(baseImage, 50, blueBorderColor);
-    CircleDecorator circleImage = new CircleDecorator(baseImage, 50, 50, 40, yellowCircleColor);
-    SquareDecorator squareImage = new SquareDecorator(baseImage, 100, 100, 40, orangeSquareColor);
-    ZoomDecorator zoomImage = new ZoomDecorator(baseImage);
+    baseImage = new BorderDecorator(baseImage, 5, redBorderColor);
+    baseImage = new BorderDecorator(baseImage, 50, blueBorderColor);
+    baseImage = new CircleDecorator(baseImage, 50, 50, 40, yellowCircleColor);
+    baseImage = new SquareDecorator(baseImage, 100, 100, 40, orangeSquareColor);
+    baseImage = new ZoomDecorator(baseImage);
     return baseImage;
   }
 
