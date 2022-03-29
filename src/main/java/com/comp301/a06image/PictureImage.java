@@ -9,6 +9,9 @@ public class PictureImage implements Image {
   private BufferedImage bufferedImage;
 
   public PictureImage(String pathname) throws IOException {
+    if (pathname == null) {
+      throw new IllegalArgumentException();
+    }
     this.bufferedImage = ImageIO.read(getClass().getResourceAsStream(pathname));
   }
 
